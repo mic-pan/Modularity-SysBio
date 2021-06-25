@@ -1,0 +1,6 @@
+[deps]
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
+
+[compat]
+julia = "1.6"

@@ -1,0 +1,214 @@
+{
+    "description": "Enzyme catalysed reactions",
+    "id":"Enzyme",
+    "components":{
+      "R_MM":{
+        "description": "Michaelis-Menten reaction",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Substrate"},
+          "1":{"description":"Product"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "Rb0":{"description":"Binding parameter of substrate"},
+          "Rb1":{"description":"Binding parameter of product"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 + f_1",
+          "f_0 - e_T*r*(exp(e_0/R/T) - exp(e_1/R/T)) / (1 + exp(e_0/R/T)/Rb0 + exp(e_1/R/T)/Rb1)"
+        ]
+      },
+
+      "GK_AXY":{
+        "description": "A component describing generalised kinetics for the reaction A ⇌ X+Y",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Reactant A"},
+          "1":{"description":"Product X"},
+          "2":{"description":"Product Y"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "RbA":{"description":"Binding parameter of substrate A"},
+          "RbX":{"description":"Binding parameter of product X"},
+          "RbY":{"description":"Binding parameter of product Y"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 + f_1",
+          "f_0 + f_2",
+          "f_0 - e_T*r*(exp(e_0/R/T) - exp((e_1+e_2)/R/T)) / (1 + exp(e_0/R/T)/RbA + (1 + exp(e_1/R/T)/RbX)*(1 + exp(e_2/R/T)/RbY) - 1)"
+        ]
+      },
+
+      "GK_ABXY":{
+        "description": "A component describing generalised kinetics for the reaction A+B ⇌ X+Y",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Reactant A"},
+          "1":{"description":"Reactant B"},
+          "2":{"description":"Product X"},
+          "3":{"description":"Product Y"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "RbA":{"description":"Binding parameter of substrate A"},
+          "RbB":{"description":"Binding parameter of substrate B"},
+          "RbX":{"description":"Binding parameter of product X"},
+          "RbY":{"description":"Binding parameter of product Y"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 - f_1",
+          "f_0 + f_2",
+          "f_0 + f_3",
+          "f_0 - e_T*r*(exp((e_0+e_1)/R/T) - exp((e_2+e_3)/R/T)) / ((1 + exp(e_0/R/T)/RbA)*(1 + exp(e_1/R/T)/RbB) + (1 + exp(e_2/R/T)/RbX)*(1 + exp(e_3/R/T)/RbY) - 1)"
+        ]
+      },
+
+      "GK_ABXYZ":{
+        "description": "A component describing generalised kinetics for the reaction A+B ⇌ X+Y+Z",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Reactant A"},
+          "1":{"description":"Reactant B"},
+          "2":{"description":"Product X"},
+          "3":{"description":"Product Y"},
+          "4":{"description":"Product Z"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "RbA":{"description":"Binding parameter of substrate A"},
+          "RbB":{"description":"Binding parameter of substrate B"},
+          "RbX":{"description":"Binding parameter of product X"},
+          "RbY":{"description":"Binding parameter of product Y"},
+          "RbZ":{"description":"Binding parameter of product Z"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 - f_1",
+          "f_0 + f_2",
+          "f_0 + f_3",
+          "f_0 + f_4",
+          "f_0 - e_T*r*(exp((e_0+e_1)/R/T) - exp((e_2+e_3+e_4)/R/T)) / ((1 + exp(e_0/R/T)/RbA)*(1 + exp(e_1/R/T)/RbB) + (1 + exp(e_2/R/T)/RbX)*(1 + exp(e_3/R/T)/RbY)*(1 + exp(e_4/R/T)/RbZ) - 1)"
+        ]
+      },
+
+      "GK_ABCXY":{
+        "description": "A component describing generalised kinetics for the reaction A+B+C ⇌ X+Y",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Reactant A"},
+          "1":{"description":"Reactant B"},
+          "2":{"description":"Reactant C"},
+          "3":{"description":"Product X"},
+          "4":{"description":"Product Y"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "RbA":{"description":"Binding parameter of substrate A"},
+          "RbB":{"description":"Binding parameter of substrate B"},
+          "RbC":{"description":"Binding parameter of substrate C"},
+          "RbX":{"description":"Binding parameter of product X"},
+          "RbY":{"description":"Binding parameter of product Y"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 - f_1",
+          "f_0 - f_2",
+          "f_0 + f_3",
+          "f_0 + f_4",
+          "f_0 - e_T*r*(exp((e_0+e_1+e_2)/R/T) - exp((e_3+e_4)/R/T)) / ((1 + exp(e_0/R/T)/RbA)*(1 + exp(e_1/R/T)/RbB)*(1 + exp(e_2/R/T)/RbC) + (1 + exp(e_3/R/T)/RbX)*(1 + exp(e_4/R/T)/RbY) - 1)"
+        ]
+      },
+
+      "GK_ABCXYZ":{
+        "description": "A component describing generalised kinetics for the reaction A+B+C ⇌ X+Y+Z",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Reactant A"},
+          "1":{"description":"Reactant B"},
+          "2":{"description":"Reactant C"},
+          "3":{"description":"Product X"},
+          "4":{"description":"Product Y"},
+          "5":{"description":"Product Z"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "RbA":{"description":"Binding parameter of substrate A"},
+          "RbB":{"description":"Binding parameter of substrate B"},
+          "RbC":{"description":"Binding parameter of substrate C"},
+          "RbX":{"description":"Binding parameter of product X"},
+          "RbY":{"description":"Binding parameter of product Y"},
+          "RbZ":{"description":"Binding parameter of product Z"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 - f_1",
+          "f_0 - f_2",
+          "f_0 + f_3",
+          "f_0 + f_4",
+          "f_0 + f_5",
+          "f_0 - e_T*r*(exp((e_0+e_1+e_2)/R/T) - exp((e_3+e_4+e_5)/R/T)) / ((1 + exp(e_0/R/T)/RbA)*(1 + exp(e_1/R/T)/RbB)*(1 + exp(e_2/R/T)/RbC) + (1 + exp(e_3/R/T)/RbX)*(1 + exp(e_4/R/T)/RbY)*(1 + exp(e_5/R/T)/RbZ) - 1)"
+        ]
+      },
+
+      "GK_ABCWWXYZ":{
+        "description": "A component describing generalised kinetics for the reaction A+B+C ⇌ 2W+X+Y+Z. This component does not include the transformer that accounts for the stoichiometry of 2 for the product W.",
+        "class": "Component",
+        "metamodel":"R",
+        "ports":{
+          "0":{"description":"Reactant A"},
+          "1":{"description":"Reactant B"},
+          "2":{"description":"Reactant C"},
+          "3":{"description":"Product W (stoichimetry 2)"},
+          "4":{"description":"Product X"},
+          "5":{"description":"Product Y"},
+          "6":{"description":"Product Z"}
+        },
+        "params":{
+          "r":{"description":"Rate of reaction"},
+          "RbA":{"description":"Binding parameter of substrate A"},
+          "RbB":{"description":"Binding parameter of substrate B"},
+          "RbC":{"description":"Binding parameter of substrate C"},
+          "RbW1":{"description":"Binding parameter of product W (first binding site)"},
+          "RbW2":{"description":"Binding parameter of product W (second binding site)"},
+          "RbX":{"description":"Binding parameter of product X"},
+          "RbY":{"description":"Binding parameter of product Y"},
+          "RbZ":{"description":"Binding parameter of product Z"},
+          "e_T":{"description":"Total amount of enzyme"},
+          "R":{"description":"Universal Gas Constant"},
+          "T":{"description": "Temperature"}
+        },
+        "constitutive_relations":[
+          "f_0 - f_1",
+          "f_0 - f_2",
+          "f_0 + f_3",
+          "f_0 + f_4",
+          "f_0 + f_5",
+          "f_0 + f_6",
+          "f_0 - e_T*r*(exp((e_0+e_1+e_2)/R/T) - exp((e_3+e_4+e_5+e_6)/R/T)) / ((1 + exp(e_0/R/T)/RbA)*(1 + exp(e_1/R/T)/RbB)*(1 + exp(e_2/R/T)/RbC) + (1 + exp(e_3/2/R/T)/RbW1)*(1 + exp(e_3/2/R/T)/RbW2)*(1 + exp(e_4/R/T)/RbX)*(1 + exp(e_5/R/T)/RbY)*(1 + exp(e_6/R/T)/RbZ) - 1)"
+        ]
+      }
+    }
+  }
