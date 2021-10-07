@@ -1,5 +1,5 @@
 #!/bin/bash
 pip install --upgrade --no-deps --force-reinstall numpy==1.20.3 julia==0.5.6 diffeqpy==1.2.0
-python diffeq_setup.py
+python-jl diffeq_setup.py
 jupyter kernelspec uninstall python3
 python-jl -m ipykernel install
