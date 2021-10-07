@@ -1,5 +1,8 @@
 #!/bin/bash
 pip install --upgrade --no-deps --force-reinstall numpy==1.20.3 julia==0.5.6 diffeqpy==1.2.0
-python-jl diffeq_setup.py
-jupyter kernelspec uninstall python3
-python-jl -m ipykernel install
+python diffeq_setup.py
+
+# Commands to make Python call Julia successfully in Binder
+cd /srv/conda/envs/notebook/share/jupyter/kernels
+cd python3
+cp ~/kernel.json ./
