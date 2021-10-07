@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "/srv/conda/envs/notebook/bin/python-jl",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python 3",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}
